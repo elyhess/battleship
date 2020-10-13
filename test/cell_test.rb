@@ -48,7 +48,15 @@ class CellTest < Minitest::Test
     assert_equal "M", cell_1.render
   end
 
+  def test_if_it_has_ship_it_hits
+    cell_1 = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_1.place_ship(cruiser)
 
+    assert_equal "S", cell_1.render(true)
+    cell_1.fire_upon
+    assert_equal "H", cell_1.render
+  end
 
 
 
