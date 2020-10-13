@@ -7,7 +7,8 @@ class Cell
     @container = []
   end
 
-
-
+  def ship
+    @container.first
+  end
 
 end
