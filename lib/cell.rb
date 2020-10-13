@@ -15,4 +15,8 @@ class Cell
     @container.empty?
   end
 
+  def place_ship(ship)
+    @container << ship
+  end
+
 end
