@@ -29,4 +29,19 @@ class Cell
     @has_been_hit = true
   end
 
+  def render(has_ship = false)
+    # if has_ship == true && empty? == false
+    #   "S"
+    # end
+    if ship.sunk?
+      "X"
+    elsif fired_upon? == true && empty? == true
+      "M"
+    elsif fired_upon? == true && empty? == false
+      "H"
+    elsif fired_upon? == false
+      "."
+    end
+  end
+
 end
