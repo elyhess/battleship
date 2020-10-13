@@ -58,6 +58,21 @@ class CellTest < Minitest::Test
     assert_equal "H", cell_1.render
   end
 
+  def test_it_can_sink
+    cell_1 = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_1.place_ship(cruiser)
+
+    cruiser.hit
+    cruiser.hit
+    cruiser.hit
+
+    assert_equal true, cruiser.sunk?
+    assert_equal "X", cell_1.render
+  end
+
+
+
 
 
 
