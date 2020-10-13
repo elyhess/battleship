@@ -11,4 +11,8 @@ class Cell
     @container.first
   end
 
+  def empty?
+    @container.empty?
+  end
+
 end
