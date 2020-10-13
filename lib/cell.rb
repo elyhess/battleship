@@ -5,6 +5,7 @@ class Cell
   def initialize(coordinate)
     @coordinate = coordinate
     @container = []
+    @has_been_hit = false
   end
 
   def ship
@@ -17,6 +18,10 @@ class Cell
 
   def place_ship(ship)
     @container << ship
+  end
+
+  def fired_upon?
+    @has_been_hit
   end
 
 end
