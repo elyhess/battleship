@@ -24,4 +24,9 @@ class Cell
     @has_been_hit
   end
 
+  def fire_upon
+    ship.health -= 1
+    @has_been_hit = true
+  end
+
 end
