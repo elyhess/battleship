@@ -10,9 +10,9 @@ class BoardTest < Minitest::Test
     board = Board.new
 
     assert_instance_of Board, board
-    assert_instance_of Hash board.cells
+    assert_instance_of Hash, board.cells
     assert_equal 16, board.cells.size
-    assert_instance_of Cell, board.values.first
+    assert_instance_of Cell, board.cells.values.first
   end
 
 end
