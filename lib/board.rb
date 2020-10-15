@@ -44,6 +44,16 @@ class Board
     numbers
   end
 
+  def nums_consecutive?(ship, coordinates)
+    numbers(coordinates).each_cons(numbers(coordinates).count).all? do |num1, num2, num3 = nil|
+      if ship.length == 2
+        num2 == num1 + 1
+      elsif ship.length == 3
+        num2 == num1 + 1  && num3 == num2 + 1
+      end
+    end
+  end
+
   def valid_coordinate?(coordinate)
     coordinate_position = @cells.keys
     coordinate_position.include?(coordinate)
