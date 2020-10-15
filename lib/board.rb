@@ -86,4 +86,17 @@ class Board
     coordinate_position = @cells.keys
     coordinate_position.include?(coordinate)
   end
+
+  def valid_placement?(ship, coordinates)
+    if ship.length != coordinates.length
+      false
+    elsif vertical_check(ship, coordinates)
+      true
+    elsif horizontal_check(ship, coordinates)
+      true
+    else
+      false
+    end
+  end
+
 end
