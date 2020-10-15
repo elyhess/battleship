@@ -88,7 +88,11 @@ class Board
   end
 
   def valid_placement?(ship, coordinates)
-    if ship.length != coordinates.length
+    all_empty = coordinates.all? do |cell|
+      @cells[cell].empty?
+    end
+
+    if ship.length != coordinates.length || all_empty == false
       false
     elsif vertical_check(ship, coordinates)
       true
@@ -96,6 +100,14 @@ class Board
       true
     else
       false
+    end
+  end
+
+  def place(ship, coordinates)
+    if valid_placement?(ship, coordinates)
+      coordinates.each do |cell|
+        @cells[cell].place_ship(ship)
+      end
     end
   end
 
