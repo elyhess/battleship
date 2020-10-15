@@ -73,6 +73,15 @@ class Board
     end
   end
 
+  def vertical_check(ship, coordinates)
+    if letters_consecutive?(ship, coordinates) == true
+      check_numbers = numbers(coordinates)
+      check_numbers.all?(check_numbers.first)
+    else
+      false
+    end
+  end
+
   def valid_coordinate?(coordinate)
     coordinate_position = @cells.keys
     coordinate_position.include?(coordinate)
