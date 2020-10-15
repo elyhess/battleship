@@ -23,6 +23,27 @@ class Board
     }
   end
 
+  def letters(coordinates)
+    letters = []
+    coordinates.each do |coord|
+      letters << coord[0]
+    end
+    letters
+    position = []
+    letters.each do |letter|
+      position << letter.ord
+    end
+    position
+  end
+
+  def numbers(coordinates)
+    numbers = []
+    coordinates.each do |coord|
+      numbers << coord[1].to_i
+    end
+    numbers
+  end
+
   def valid_coordinate?(coordinate)
     coordinate_position = @cells.keys
     coordinate_position.include?(coordinate)
