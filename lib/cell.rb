@@ -9,7 +9,7 @@ class Cell
   end
 
   def ship
-    @container.first
+    @container.first if empty? == false
   end
 
   def empty?
@@ -34,21 +34,26 @@ class Cell
       ship.hit
     end
   end
-
+# Can change ship.sunk method so if theres no ship, automatically return false
+# Change order of render so X and H take highest priority
   def render(has_ship = false)
-    if has_ship == true && empty? == false
-      "S"
-    elsif empty? == true && fired_upon? == false
-      "."
-    elsif empty? == true && fired_upon? == true
-      "M"
-   elsif ship.sunk? == true
-     "X"
-   elsif empty? == false && fired_upon? == true # && ship.sunk? == false
-     "H"
-   else
-     "."
-   end
+    if empty? == false
+      if ship.sunk? == true
+        "X"
+      elsif fired_upon? == true # && ship.sunk? == false
+        "H"
+      elsif has_ship == true
+        "S"
+      else
+        "."
+      end
+    else
+      if fired_upon? == true
+        "M"
+      else
+        "."
+      end
+    end
   end
 
 end
