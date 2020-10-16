@@ -13,7 +13,11 @@ class Cell
   end
 
   def empty?
-    @container.empty?
+    if @container.size == 0
+      true
+    else
+      false
+    end
   end
 
   def place_ship(ship)
@@ -38,11 +42,13 @@ class Cell
       "."
     elsif empty? == true && fired_upon? == true
       "M"
-    elsif empty? == false && fired_upon? == true # && ship.sunk? == false
-      "H"
-    elsif ship.sunk? == true
-      "X"
-    end
+   elsif ship.sunk? == true
+     "X"
+   elsif empty? == false && fired_upon? == true # && ship.sunk? == false
+     "H"
+   else
+     "."
+   end
   end
 
 end
