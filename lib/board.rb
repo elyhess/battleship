@@ -111,4 +111,47 @@ class Board
     end
   end
 
+  def render(has_ship = false)
+    # Create array of cells [A's,B's,C's,D's]
+
+    all_cells = @cells.values
+    # Render every cell [[A's], [B's], [C's], [D's]]
+    all_cells_render = all_cells.map do |cell|
+      cell.render(has_ship)
+    end
+    all_cells_render = all_cells_render.each_slice(4).to_a
+
+    num_string = "  1 2 3 4 \n"
+    a_string = "A"
+    b_string = "B"
+    c_string = "C"
+    d_string = "D"
+
+    a_results = all_cells_render[0]
+    b_results = all_cells_render[1]
+    c_results = all_cells_render[2]
+    d_results = all_cells_render[3]
+
+    a_results.each do |cell_render_results|
+      a_string += " #{cell_render_results}"
+    end
+    b_results.each do |cell_render_results|
+      b_string += " #{cell_render_results}"
+    end
+    c_results.each do |cell_render_results|
+      c_string += " #{cell_render_results}"
+    end
+    d_results.each do |cell_render_results|
+      d_string += " #{cell_render_results}"
+    end
+
+  a_string += "\n"
+  b_string += "\n"
+  c_string += "\n"
+  d_string += "\n"
+
+  final_result = num_string + a_string + b_string + c_string + d_string
+  final_result
+  end
+
 end
