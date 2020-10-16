@@ -145,10 +145,10 @@ class Board
       d_string += " #{cell_render_results}"
     end
 
-  a_string += "\n"
-  b_string += "\n"
-  c_string += "\n"
-  d_string += "\n"
+  a_string += " \n"
+  b_string += " \n"
+  c_string += " \n"
+  d_string += " \n"
 
   final_result = num_string + a_string + b_string + c_string + d_string
   final_result
