@@ -5,4 +5,8 @@ class Player
     @board = Board.new
   end
 
+  def board_keys
+    @board.cells.keys
+  end
+
 end
