@@ -8,13 +8,11 @@ require './lib/computer'
 
 class ComputerTest < Minitest::Test
 
-  def test_it_exists_and_has_a_board_and_coordinates
+  def test_it_exists_and_has_a_board
     karen = Computer.new
 
     assert_instance_of Computer, karen
     assert_instance_of Board, karen.board
-    assert_equal "A1", karen.board_keys.first
-    assert_equal "D4", karen.board_keys.last
   end
 
   def test_computer_places_valid_cruiser_at_random
@@ -43,11 +41,11 @@ class ComputerTest < Minitest::Test
     karen = Computer.new
     save_coordinate = karen.validate_fire
 
-    assert_equal true, karen.board.cells[save_coordinate].fired_upon?
+    assert_equal false, karen.board.cells[save_coordinate].fired_upon?
 
     karen.fire(save_coordinate)
 
-    assert_equal false, karen.board.cells[save_coordinate].fired_upon?
+    assert_equal true, karen.board.cells[save_coordinate].fired_upon?
   end
 
 end
