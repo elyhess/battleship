@@ -9,10 +9,6 @@ class Computer
     @numbers = ["1", "2", "3", "4"]
   end
 
-  def board_keys
-    @board.cells.keys
-  end
-
   def valid_cruiser_coordinates
     counter = 0
     coordinates = []
@@ -53,4 +49,30 @@ class Computer
     end
   end
 
+  def validate_fire
+    coordinate = ''
+    coordinate += @letters.shuffle.first
+    coordinate += @numbers.shuffle.first
+    until @board.cells[coordinate].fired_upon? == false
+      coordinate = ''
+      coordinate += @letters.shuffle.first
+      coordinate += @numbers.shuffle.first
+    end
+    coordinate
+  end
+
+  def fire(coordinate)
+    board.cells[coordinate].fire_upon
+  end
+
 end
+
+
+
+
+
+
+
+
+
+#
