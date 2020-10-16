@@ -1,9 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../lib/ship'
-require '../lib/cell'
-require '../lib/board'
-require '../lib/computer'
+require './lib/ship'
+require './lib/cell'
+require './lib/board'
+require './lib/computer'
 
 
 class ComputerTest < Minitest::Test
@@ -17,14 +17,24 @@ class ComputerTest < Minitest::Test
     assert_equal "D4", karen.board_keys.last
   end
 
-  def test_computer_places_valid_ship_at_random
+  def test_computer_places_valid_cruiser_at_random
     karen = Computer.new
-    cruiser = Ship.new("Cruiser", 3)
-    saved_coordinates = karen.valid_coordinates
+    saved_coordinates = karen.valid_cruiser_coordinates
 
     assert_equal true, karen.board.cells[saved_coordinates.last].empty?
 
-    karen.place_ship(saved_coordinates)
+    karen.place_cruiser(saved_coordinates)
+
+    assert_equal false, karen.board.cells[saved_coordinates.last].empty?
+  end
+
+  def test_computer_places_valid_submarine_at_random
+    karen = Computer.new
+    saved_coordinates = karen.valid_submarine_coordinates
+
+    assert_equal true, karen.board.cells[saved_coordinates.last].empty?
+
+    karen.place_submarine(saved_coordinates)
 
     assert_equal false, karen.board.cells[saved_coordinates.last].empty?
   end
