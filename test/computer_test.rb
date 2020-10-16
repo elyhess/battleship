@@ -17,4 +17,13 @@ class ComputerTest < Minitest::Test
     assert_equal "D4", karen.board_keys.last
   end
 
+  def test_computer_places_valid_ship_at_random
+    karen = Computer.new
+    cruiser = Ship.new("Cruiser", 3)
+
+    karen.place_ship
+
+    assert_equal false, karen.board.cells[karen.place_ship.last].empty?
+  end
+
 end
