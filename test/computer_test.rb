@@ -41,11 +41,7 @@ class ComputerTest < Minitest::Test
   def test_computer_can_fire_at_random
     karen = Computer.new
     jerry = Player.new
-    save_coordinate = karen.validate_fire(jerry)
-
-    assert_equal false, jerry.board.cells[save_coordinate].fired_upon?
-
-    karen.fire_upon(save_coordinate, jerry)
+    save_coordinate = karen.fire_upon(jerry)
 
     assert_equal true, jerry.board.cells[save_coordinate].fired_upon?
   end

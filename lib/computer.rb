@@ -61,14 +61,13 @@ class Computer
     coordinate
   end
 
-  def fire_upon(coordinate, target)
-    target.board.cells[coordinate].fire_upon
+  def fire_upon(target)
+     coordinate = validate_fire(target)
+     target.board.cells[coordinate].fire_upon
+     coordinate
   end
 
 end
-
-
-
 
 
 
