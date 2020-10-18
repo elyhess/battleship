@@ -37,16 +37,20 @@ class Computer
     coordinates
   end
 
-  def place_cruiser(coordinates)
+  def place_cruiser
+    coordinates = valid_cruiser_coordinates
     coordinates.each do |coordinate|
       @board.cells[coordinate].place_ship(@cruiser)
     end
+    coordinates
   end
 
-  def place_submarine(coordinates)
+  def place_submarine
+    coordinates = valid_submarine_coordinates
     coordinates.each do |coordinate|
       @board.cells[coordinate].place_ship(@submarine)
     end
+    coordinates
   end
 
   def validate_fire(target)
