@@ -1,5 +1,5 @@
 class Computer
-  attr_reader :board
+  attr_reader :board, :submarine, :cruiser
 
   def initialize
     @board = Board.new
@@ -37,16 +37,20 @@ class Computer
     coordinates
   end
 
-  def place_cruiser(coordinates)
+  def place_cruiser
+    coordinates = valid_cruiser_coordinates
     coordinates.each do |coordinate|
       @board.cells[coordinate].place_ship(@cruiser)
     end
+    coordinates
   end
 
-  def place_submarine(coordinates)
+  def place_submarine
+    coordinates = valid_submarine_coordinates
     coordinates.each do |coordinate|
       @board.cells[coordinate].place_ship(@submarine)
     end
+    coordinates
   end
 
   def validate_fire(target)
@@ -61,14 +65,13 @@ class Computer
     coordinate
   end
 
-  def fire_upon(coordinate, target)
-    target.board.cells[coordinate].fire_upon
+  def fire_upon(target)
+     coordinate = validate_fire(target)
+     target.board.cells[coordinate].fire_upon
+     coordinate
   end
 
 end
-
-
-
 
 
 
