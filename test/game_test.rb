@@ -17,4 +17,10 @@ class GameTest < Minitest::Test
     assert_instance_of Computer, game.computer
   end
 
+  def test_it_has_main_menu
+    game = Game.new
+
+    assert_equal true, "QP".include?(game.main_menu)
+  end
+
 end
