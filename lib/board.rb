@@ -84,10 +84,17 @@ class Board
 
   def valid_coordinate?(coordinate)
     coordinate_position = @cells.keys
-    coordinate_position.include?(coordinate)
+    if coordinate_position.include?(coordinate)
+      return !cells[coordinate].fired_upon?
+    else
+      false
+    end
   end
 
   def valid_placement?(ship, coordinates)
+    return false if coordinates.any? do |coordinate|
+      valid_coordinate?(coordinate) == false
+    end
     all_empty = coordinates.all? do |cell|
       @cells[cell].empty?
     end
