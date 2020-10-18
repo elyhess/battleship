@@ -53,4 +53,22 @@ class Player
     coords
   end
 
+  # take enemy as argument to use their board
+    def validate_firing_coords(player)
+      puts "Enter the coordinate for your shot:"
+      player_input = gets.chomp.upcase
+      # Validate input for existing cell first
+      until player.board.valid_coordinate?(player_input)
+        puts "Please enter a valid coordinate:"
+        player_input = gets.chomp.upcase
+      end
+      player_input
+    end
+
+    def fire_upon(player)
+      coord = validate_firing_coords(player)
+      player.board.cells[coord].fire_upon
+      coord
+    end
+
 end
