@@ -48,4 +48,28 @@ class PlayerTest < Minitest::Test
     assert_equal false, jerry.board.cells[coord_submarine2].empty?
   end
 
+  def test_it_can_validate_player_input_for_firing_coord
+    jerry = Player.new
+    puts "START of validating firing coord test"
+    coord_for_firing = jerry.validate_firing_coords(jerry)
+
+    assert_equal false, jerry.board.cells[coord_for_firing].fired_upon?
+    puts "END of validating firing coord test"
+    coords_with_submarine = jerry.place_submarine
+    coord1 = coords_with_submarine[0]
+    coord2 = coords_with_submarine[1]
+
+    assert_equal false, jerry.board.cells[coord1].fired_upon?
+    assert_equal false, jerry.board.cells[coord2].fired_upon?
+  end
+
+  def test_it_can_fire_upon_enemy_board
+    jerry = Player.new
+    karen = Computer.new
+    puts "START of fire upon test"
+    coord_shot_at = jerry.fire_upon(karen)
+    puts "END of fire upon test"
+    assert_equal true, karen.board.cells[coord_shot_at].fired_upon?
+  end
+
 end
