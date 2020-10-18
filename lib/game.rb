@@ -33,7 +33,6 @@ class Game
     @player.place_cruiser
     puts @player.board.render(true)
     @player.place_submarine
-    puts @player.board.render(true)
     play
   end
 
@@ -46,17 +45,30 @@ class Game
       player_turn = @player.fire_upon(@computer)
       computer_turn = @computer.fire_upon(@player)
 
-      if computer.board.cells[player_turn].render == "M"
+      if @computer.board.cells[player_turn].render == "M"
         puts "Your shot on #{player_turn} was a miss"
-      elsif computer.board.cells[player_turn].render == "H"
-        puts "Your shot on #{player_turn} was a miss"
+      elsif @computer.board.cells[player_turn].render == "H"
+        puts "Your shot on #{player_turn} was a hit"
+      end
+
+      if @player.board.cells[computer_turn].render == "M"
+        puts "My shot on #{computer_turn} was a miss"
+      elsif @player.board.cells[computer_turn].render == "H"
+        puts "My shot on #{computer_turn} was a hit"
       end
     end
     winner_loser
   end
 
   def winner_loser
-
+    if @player.cruiser.sunk? && @player.submarine.sunk?
+      puts "I won!"
+    elsif @computer.cruiser.sunk? && @computer.submarine.sunk?
+      puts "You won!"
+    end
+    @player = Player.new
+    @computer = Computer.new
+    main_menu
   end
 
 end
