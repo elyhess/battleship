@@ -57,7 +57,6 @@ class Player
   def validate_firing_coords(target)
     puts "Enter the coordinate for your shot:"
     player_input = gets.chomp.upcase
-    # Validate input for existing cell first
     until target.board.valid_coordinate?(player_input)
       puts "Please enter a valid coordinate:"
       player_input = gets.chomp.upcase
