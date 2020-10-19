@@ -47,12 +47,16 @@ class Game
 
       if @computer.board.cells[player_turn].render == "M"
         puts "Your shot on #{player_turn} was a miss"
+      elsif @computer.board.cells[player_turn].render == "X"
+        puts "You sunk my #{@computer.board.cells[player_turn].ship.name}"
       elsif @computer.board.cells[player_turn].render == "H"
         puts "Your shot on #{player_turn} was a hit"
       end
 
       if @player.board.cells[computer_turn].render == "M"
         puts "My shot on #{computer_turn} was a miss"
+      elsif @player.board.cells[computer_turn].render == "X"
+        puts "I sunk your #{@player.board.cells[computer_turn].ship.name}"
       elsif @player.board.cells[computer_turn].render == "H"
         puts "My shot on #{computer_turn} was a hit"
       end

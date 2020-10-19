@@ -85,7 +85,10 @@ class Board
   def valid_coordinate?(coordinate)
     coordinate_position = @cells.keys
     if coordinate_position.include?(coordinate)
-      return !cells[coordinate].fired_upon?
+      if @cells[coordinate].fired_upon? == true
+        puts "You've already hit here."
+      end
+      !cells[coordinate].fired_upon?
     else
       false
     end
