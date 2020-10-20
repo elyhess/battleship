@@ -24,16 +24,9 @@ class Board
   end
 
   def letters(coordinates)
-    letters = []
-    coordinates.each do |coord|
-      letters << coord[0]
+    letter = coordinates.map do |coord|
+      coord[0].ord
     end
-    letters
-    position = []
-    letters.each do |letter|
-      position << letter.ord
-    end
-    position
   end
 
   def numbers(coordinates)
