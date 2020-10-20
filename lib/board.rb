@@ -24,13 +24,13 @@ class Board
   end
 
   def letters(coordinates)
-    letter = coordinates.map do |coord|
+    coordinates.map do |coord|
       coord[0].ord
     end
   end
 
   def numbers(coordinates)
-    numbers = coordinates.map do |coord|
+    coordinates.map do |coord|
       coord[1].to_i
     end
   end
