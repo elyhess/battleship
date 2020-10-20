@@ -13,11 +13,7 @@ class Cell
   end
 
   def empty?
-    if @container.size == 0
-      true
-    else
-      false
-    end
+    @container.size == 0
   end
 
   def place_ship(ship)
