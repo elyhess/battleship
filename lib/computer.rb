@@ -49,12 +49,10 @@ class Computer
 
   def validate_fire(target)
     coordinate = ''
-    coordinate += @letters.shuffle.first
-    coordinate += @numbers.shuffle.first
+    coordinate += @letters.shuffle.first + @numbers.shuffle.first
     until target.board.cells[coordinate].fired_upon? == false
       coordinate = ''
-      coordinate += @letters.shuffle.first
-      coordinate += @numbers.shuffle.first
+      coordinate += @letters.shuffle.first + @numbers.shuffle.first
     end
     coordinate
   end
