@@ -6,7 +6,7 @@ class Game
     @computer = Computer.new
   end
 
-  def main_menu
+  def start
     puts "Welcome to BATTLESHIP"
     puts "Enter p to play. Enter q to quit."
     player_input = gets.chomp.upcase
@@ -72,7 +72,7 @@ class Game
     end
     @player = Player.new
     @computer = Computer.new
-    main_menu
+    start
   end
 
 end
