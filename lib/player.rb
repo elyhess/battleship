@@ -13,12 +13,11 @@ class Player
 
   def validate_cruiser_placement
     puts "Enter the squares for the Cruiser (3 spaces):"
-    player_input = gets.chomp.upcase.split(" ").to_a # "A1 A2 A3"
+    player_input = gets.chomp.upcase.split(" ").to_a
     until board.valid_placement?(@cruiser, player_input)
-      # Error message if bad placement
       puts "Those are invalid coordinates. Please try again:" unless board.valid_placement?(@cruiser, player_input)
       puts "Enter the squares for the Cruiser (3 spaces):"
-      player_input = gets.chomp.upcase.split(" ").to_a # ["A1", "A2", "A3"]
+      player_input = gets.chomp.upcase.split(" ").to_a
     end
     print "You have placed your Cruiser on #{player_input}.\n"
     player_input
@@ -26,9 +25,8 @@ class Player
 
   def validate_submarine_placement
     puts "Enter the squares for the Submarine (2 spaces):"
-    player_input = gets.chomp.upcase.split(" ").to_a # "A1 A2"
+    player_input = gets.chomp.upcase.split(" ").to_a
     until board.valid_placement?(@submarine, player_input)
-      # Error message if bad placement
       puts "Those are invalid coordinates. Please try again:" unless board.valid_placement?(@cruiser, player_input)
       puts "Enter the squares for the Submarine (2 spaces):"
       player_input = gets.chomp.upcase.split(" ").to_a
@@ -42,7 +40,6 @@ class Player
     coords.each do |coord|
       board.cells[coord].place_ship(@cruiser)
     end
-    coords
   end
 
   def place_submarine
@@ -50,10 +47,8 @@ class Player
     coords.each do |coord|
       board.cells[coord].place_ship(@submarine)
     end
-    coords
   end
 
-  # take enemy as argument to use their board
   def validate_firing_coords(target)
     puts "Enter the coordinate for your shot:"
     player_input = gets.chomp.upcase
