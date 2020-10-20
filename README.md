@@ -6,7 +6,7 @@
 - Move/CD to the battleship directory
 - In your Terminal, type in `ruby runner.rb`
 
-
+***
     How it works:
 - ship
   + A ship object holds information about its length, health, and name.
