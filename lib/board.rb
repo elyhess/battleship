@@ -113,10 +113,7 @@ class Board
   end
 
   def render(has_ship = false)
-    # Create array of cells [A's,B's,C's,D's]
-
     all_cells = @cells.values
-    # Render every cell [[A's], [B's], [C's], [D's]]
     all_cells_render = all_cells.map do |cell|
       cell.render(has_ship)
     end
