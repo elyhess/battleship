@@ -30,13 +30,12 @@ class Cell
       ship.hit
     end
   end
-# Can change ship.sunk method so if theres no ship, automatically return false
-# Change order of render so X and H take highest priority
+
   def render(has_ship = false)
     if empty? == false
       if ship.sunk? == true
         "X"
-      elsif fired_upon? == true # && ship.sunk? == false
+      elsif fired_upon? == true
         "H"
       elsif has_ship == true
         "S"
