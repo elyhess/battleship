@@ -30,11 +30,9 @@ class Board
   end
 
   def numbers(coordinates)
-    numbers = []
-    coordinates.each do |coord|
-      numbers << coord[1].to_i
+    numbers = coordinates.map do |coord|
+      coord[1].to_i
     end
-    numbers
   end
 
   def nums_consecutive?(ship, coordinates)
