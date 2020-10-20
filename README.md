@@ -1,8 +1,5 @@
-# Battleship
-<p align="center">
-  <img src="https://github.com/elyhess/battleship/blob/main/battleship.png" alt="Sublime's custom image"/>
-</p>
-
+# BATTLESHIP
+![battleship](https://github.com/elyhess/battleship/blob/main/battleship.png)
 ***
     How to play:
 - Open terminal
