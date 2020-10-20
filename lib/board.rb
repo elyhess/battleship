@@ -24,24 +24,15 @@ class Board
   end
 
   def letters(coordinates)
-    letters = []
-    coordinates.each do |coord|
-      letters << coord[0]
+    coordinates.map do |coord|
+      coord[0].ord
     end
-    letters
-    position = []
-    letters.each do |letter|
-      position << letter.ord
-    end
-    position
   end
 
   def numbers(coordinates)
-    numbers = []
-    coordinates.each do |coord|
-      numbers << coord[1].to_i
+    coordinates.map do |coord|
+      coord[1].to_i
     end
-    numbers
   end
 
   def nums_consecutive?(ship, coordinates)
@@ -122,10 +113,7 @@ class Board
   end
 
   def render(has_ship = false)
-    # Create array of cells [A's,B's,C's,D's]
-
     all_cells = @cells.values
-    # Render every cell [[A's], [B's], [C's], [D's]]
     all_cells_render = all_cells.map do |cell|
       cell.render(has_ship)
     end
