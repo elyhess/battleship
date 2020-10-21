@@ -65,6 +65,11 @@ class Game
   end
 
   def winner_loser
+    puts "=============COMPUTER BOARD============="
+    puts @computer.board.render
+    puts "==============PLAYER BOARD=============="
+    puts @player.board.render(true)
+
     if @player.cruiser.sunk? && @player.submarine.sunk?
       puts "I won!"
     elsif @computer.cruiser.sunk? && @computer.submarine.sunk?
