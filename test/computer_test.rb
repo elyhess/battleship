@@ -9,11 +9,13 @@ require './lib/computer'
 
 class ComputerTest < Minitest::Test
 
-  def test_it_exists_and_has_a_board
+  def test_it_exists_and_has_a_board_and_ships
     karen = Computer.new
 
     assert_instance_of Computer, karen
     assert_instance_of Board, karen.board
+    assert_instance_of Ship, karen.cruiser
+    assert_instance_of Ship, karen.submarine
   end
 
   def test_computer_places_valid_cruiser_at_random
@@ -35,6 +37,7 @@ class ComputerTest < Minitest::Test
   def test_computer_can_fire_at_random
     karen = Computer.new
     jerry = Player.new
+    
     save_coordinate = karen.fire_upon(jerry)
 
     assert_equal true, jerry.board.cells[save_coordinate].fired_upon?
