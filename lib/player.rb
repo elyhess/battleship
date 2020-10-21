@@ -6,11 +6,7 @@ class Player
     @cruiser = Ship.new("Cruiser", 3)
     @submarine = Ship.new("Submarine", 2)
   end
-
-  def board_keys
-    @board.cells.keys
-  end
-
+  
   def validate_cruiser_placement
     puts "Enter the squares for the Cruiser (3 spaces):"
     player_input = gets.chomp.upcase.split(" ").to_a
